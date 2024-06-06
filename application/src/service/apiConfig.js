@@ -1,0 +1,26 @@
+export const apiConfig = {
+    GeneralSetting:{
+        path:"setting",
+        method:"get"
+    },
+    fileUpload:{
+        path:"file/upload",
+        method:"post"
+    },
+    fileList:{
+        path:'file/list',
+        method:"post"
+    },
+    favouriteAddRemove:{
+        path:'favourite',
+        method:"post"
+    },
+    moveToBin:{
+        path:'delete/file',
+        method:"post"
+    },
+    removeFromBin:{
+        path:'remove/bin',
+        method:"post"
+    },
+}

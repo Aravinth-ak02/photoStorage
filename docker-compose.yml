@@ -1,0 +1,30 @@
+version: "3"
+services:
+
+  #mongo service
+  mongo_db:
+    container_name: mongo_db
+    image: mongo:5
+    volumes:
+      - mongo_db:/data/db
+
+  #node service
+  node:
+    build: .
+    ports:
+      - 8000:8000
+    environment:
+      MONOGO_URL: "mongodb://mongo_db/pando"
+      PORT: 8000
+    depends_on:
+      - mongo_db
+  #vue service
+  vue:
+    build: ./application
+    ports:
+      - 5173:5173
+    depends_on:
+      - node
+
+volumes:
+  mongo_db: {}
